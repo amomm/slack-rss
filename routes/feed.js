@@ -22,9 +22,9 @@ router.get('/:channel_name', function(req, res, next) {
   				slack.api('channels.history', {'channel':channel.id,'count':process.env.HISTORY_LENGTH} ,function(err, response){
 			  		for(var i = 0; i < response.messages.length; i++) {
 			  			if(response.messages[i].type="message" && response.messages[i].subtype != "bot_message") {  				
-				  			for(var j = 0; j < response.messages[i].attachments.length; j++) {
+				  		
 				  				
-				  					var message = response.messages[i]
+				  					var message = response.messages[i];
 
 				  					var t = new Date(response.messages[i].ts * 1000);
 
@@ -35,8 +35,8 @@ router.get('/:channel_name', function(req, res, next) {
 				  						date: t
 				  					});
 				  				
-				  			}
-			  			}
+				  			
+			  			
   					}
 
   				res.send(feed.xml({indent: true}));
