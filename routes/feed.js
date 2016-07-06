@@ -30,7 +30,7 @@ router.get('/:channel_name', function(req, res, next) {
 				  						url: "https://promethee.emse.fr",
 				  						date: t
 				  					});
-				  				
+			  			}		
 				  			
 			  			
   					}
